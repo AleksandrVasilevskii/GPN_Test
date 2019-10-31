@@ -11,32 +11,10 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="UPLOAD_MAIN"
   DTS:PackageType="5"
-  DTS:VersionBuild="109"
-  DTS:VersionGUID="{AAD435C4-0772-406F-BEFA-4E63BEA6EF47}">
+  DTS:VersionBuild="112"
+  DTS:VersionGUID="{BD89DAC1-BE08-42EC-95F1-EDB5F6C0421C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[ORO-DWHPRED-01.AdventureWorks2016]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{759512EB-B134-40E3-B21B-152E6BBECF7C}"
-      DTS:ObjectName="ORO-DWHPRED-01.AdventureWorks2016">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=ORO-DWHPRED-01;Initial Catalog=AdventureWorks2016;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[ORO-DWHPRED-01.GPN_Test]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{3AD9DBA1-8D6E-4795-AD55-FEB88ABAD08D}"
-      DTS:ObjectName="ORO-DWHPRED-01.GPN_Test">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=ORO-DWHPRED-01;Initial Catalog=GPN_Test;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-  </DTS:ConnectionManagers>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
@@ -123,7 +101,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Truncate Prod"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -140,7 +118,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Truncate Stage"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -221,8 +199,8 @@
                   <connections>
                     <connection
                       refId="Package\TASK 1 - Upload Denormalized Table (Simpe Components)\Upload Prod\dbo_DenormalizedTable.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[ORO-DWHPRED-01.GPN_Test]"
-                      connectionManagerRefId="Package.ConnectionManagers[ORO-DWHPRED-01.GPN_Test]"
+                      connectionManagerID="{3AD9DBA1-8D6E-4795-AD55-FEB88ABAD08D}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[ORO-DWHPRED-01.GPN_Test]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -412,8 +390,8 @@
                   <connections>
                     <connection
                       refId="Package\TASK 1 - Upload Denormalized Table (Simpe Components)\Upload Prod\stage_DenormalizedTable.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[ORO-DWHPRED-01.GPN_Test]"
-                      connectionManagerRefId="Package.ConnectionManagers[ORO-DWHPRED-01.GPN_Test]"
+                      connectionManagerID="{3AD9DBA1-8D6E-4795-AD55-FEB88ABAD08D}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[ORO-DWHPRED-01.GPN_Test]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -713,8 +691,8 @@ LEFT JOIN
                   <connections>
                     <connection
                       refId="Package\TASK 1 - Upload Denormalized Table (Simpe Components)\Upload Stage\Sales Order JOIN Products.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[ORO-DWHPRED-01.AdventureWorks2016]"
-                      connectionManagerRefId="Package.ConnectionManagers[ORO-DWHPRED-01.AdventureWorks2016]"
+                      connectionManagerID="{759512EB-B134-40E3-B21B-152E6BBECF7C}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[ORO-DWHPRED-01.AdventureWorks2016]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -986,8 +964,8 @@ LEFT JOIN
                   <connections>
                     <connection
                       refId="Package\TASK 1 - Upload Denormalized Table (Simpe Components)\Upload Stage\stage_DenormalizedTable.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[ORO-DWHPRED-01.GPN_Test]"
-                      connectionManagerRefId="Package.ConnectionManagers[ORO-DWHPRED-01.GPN_Test]"
+                      connectionManagerID="{3AD9DBA1-8D6E-4795-AD55-FEB88ABAD08D}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[ORO-DWHPRED-01.GPN_Test]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1227,36 +1205,6 @@ LEFT JOIN
               ReadOnlyVariables="User::WeatherData_Input"
               ReadWriteVariables="User::WeatherData_Output">
               <ProjectItem
-                Name="Properties\AssemblyInfo.cs"
-                Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
-
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_b2605f23fb2944f7bf25e1bb25f63f5d")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_b2605f23fb2944f7bf25e1bb25f63f5d")]
-[assembly: AssemblyCopyright("Copyright @  2019")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
-              <ProjectItem
                 Name="Properties\Resources.resx"
                 Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
 <root>
@@ -1376,14 +1324,34 @@ using System.Runtime.CompilerServices;
   </resheader>
 </root>]]></ProjectItem>
               <ProjectItem
-                Name="Properties\Settings.settings"
-                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
+                Name="Properties\Settings.Designer.cs"
+                Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_b2605f23fb2944f7bf25e1bb25f63f5d.Properties.Settings.get_Default():ST_b2605f23fb2944f7bf25e1bb25f63f5d.Properties.Sett" +
+    "ings")]
+
+namespace ST_b2605f23fb2944f7bf25e1bb25f63f5d.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
               <ProjectItem
                 Name="ScriptMain.cs"
                 Encoding="UTF8"><![CDATA[
@@ -1460,55 +1428,6 @@ namespace ST_b2605f23fb2944f7bf25e1bb25f63f5d
 
 
 	}
-}]]></ProjectItem>
-              <ProjectItem
-                Name="Project"
-                Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
-<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="3.0" schemaVersion="1.0">
-	<msb:PropertyGroup>
-		<msb:Language>msBuild</msb:Language>
-		<msb:CodeName>ST_b2605f23fb2944f7bf25e1bb25f63f5d</msb:CodeName>
-		<msb:DisplayName>ST_b2605f23fb2944f7bf25e1bb25f63f5d</msb:DisplayName>
-		<msb:ProjectId>{AB729E52-BA6A-4A08-8933-05C621493DBD}</msb:ProjectId>
-	</msb:PropertyGroup>
-	<msb:ItemGroup>
-		<msb:Project Include="ST_b2605f23fb2944f7bf25e1bb25f63f5d.csproj"/>
-		<msb:File Include="Properties\Settings.settings"/>
-		<msb:File Include="Properties\AssemblyInfo.cs"/>
-		<msb:File Include="Properties\Resources.resx"/>
-		<msb:File Include="Properties\Resources.Designer.cs"/>
-		<msb:File Include="Properties\Settings.Designer.cs"/>
-		<msb:File Include="ScriptMain.cs"/>
-	</msb:ItemGroup>
-</c:Project>]]></ProjectItem>
-              <ProjectItem
-                Name="Properties\Settings.Designer.cs"
-                Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
-//
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
-
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_b2605f23fb2944f7bf25e1bb25f63f5d.Properties.Settings.get_Default():ST_b2605f23fb2944f7bf25e1bb25f63f5d.Properties.Sett" +
-    "ings")]
-
-namespace ST_b2605f23fb2944f7bf25e1bb25f63f5d.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
 }]]></ProjectItem>
               <ProjectItem
                 Name="ST_b2605f23fb2944f7bf25e1bb25f63f5d.csproj"
@@ -1609,6 +1528,65 @@ namespace ST_b2605f23fb2944f7bf25e1bb25f63f5d.Properties {
     </VisualStudio>
   </ProjectExtensions>
 </Project>]]></ProjectItem>
+              <ProjectItem
+                Name="Project"
+                Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="3.0" schemaVersion="1.0">
+	<msb:PropertyGroup>
+		<msb:Language>msBuild</msb:Language>
+		<msb:CodeName>ST_b2605f23fb2944f7bf25e1bb25f63f5d</msb:CodeName>
+		<msb:DisplayName>ST_b2605f23fb2944f7bf25e1bb25f63f5d</msb:DisplayName>
+		<msb:ProjectId>{AB729E52-BA6A-4A08-8933-05C621493DBD}</msb:ProjectId>
+	</msb:PropertyGroup>
+	<msb:ItemGroup>
+		<msb:Project Include="ST_b2605f23fb2944f7bf25e1bb25f63f5d.csproj"/>
+		<msb:File Include="Properties\Settings.settings"/>
+		<msb:File Include="Properties\AssemblyInfo.cs"/>
+		<msb:File Include="Properties\Resources.resx"/>
+		<msb:File Include="Properties\Resources.Designer.cs"/>
+		<msb:File Include="Properties\Settings.Designer.cs"/>
+		<msb:File Include="ScriptMain.cs"/>
+	</msb:ItemGroup>
+</c:Project>]]></ProjectItem>
+              <ProjectItem
+                Name="Properties\AssemblyInfo.cs"
+                Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_b2605f23fb2944f7bf25e1bb25f63f5d")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_b2605f23fb2944f7bf25e1bb25f63f5d")]
+[assembly: AssemblyCopyright("Copyright @  2019")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+              <ProjectItem
+                Name="Properties\Settings.settings"
+                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
               <ProjectItem
                 Name="Properties\Resources.Designer.cs"
                 Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -1906,8 +1884,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
                   <connections>
                     <connection
                       refId="Package\TASK 2 - WeatherData to AdverntureWorks 2016 Upload\Upload AW WeaterData\dbo_WeatherData (AW).Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[ORO-DWHPRED-01.AdventureWorks2016]"
-                      connectionManagerRefId="Package.ConnectionManagers[ORO-DWHPRED-01.AdventureWorks2016]"
+                      connectionManagerID="{759512EB-B134-40E3-B21B-152E6BBECF7C}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[ORO-DWHPRED-01.AdventureWorks2016]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -2077,8 +2055,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
                   <connections>
                     <connection
                       refId="Package\TASK 2 - WeatherData to AdverntureWorks 2016 Upload\Upload AW WeaterData\dbo_WeatherData (GPN_Test).Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[ORO-DWHPRED-01.GPN_Test]"
-                      connectionManagerRefId="Package.ConnectionManagers[ORO-DWHPRED-01.GPN_Test]"
+                      connectionManagerID="{3AD9DBA1-8D6E-4795-AD55-FEB88ABAD08D}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[ORO-DWHPRED-01.GPN_Test]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -2448,7 +2426,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           DTS:LocaleID="-1"
           DTS:ObjectName="Truncate Prod"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2465,7 +2443,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           DTS:LocaleID="-1"
           DTS:ObjectName="Truncate Stage"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2546,8 +2524,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
                   <connections>
                     <connection
                       refId="Package\TASK 3 - Upload Denormalized Table (Blocking and Non-Blocking Components)\Upload Prod\dbo_DenormalizedTable.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[ORO-DWHPRED-01.GPN_Test]"
-                      connectionManagerRefId="Package.ConnectionManagers[ORO-DWHPRED-01.GPN_Test]"
+                      connectionManagerID="{3AD9DBA1-8D6E-4795-AD55-FEB88ABAD08D}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[ORO-DWHPRED-01.GPN_Test]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -2737,8 +2715,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
                   <connections>
                     <connection
                       refId="Package\TASK 3 - Upload Denormalized Table (Blocking and Non-Blocking Components)\Upload Prod\stage_DenormalizedTable.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[ORO-DWHPRED-01.GPN_Test]"
-                      connectionManagerRefId="Package.ConnectionManagers[ORO-DWHPRED-01.GPN_Test]"
+                      connectionManagerID="{3AD9DBA1-8D6E-4795-AD55-FEB88ABAD08D}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[ORO-DWHPRED-01.GPN_Test]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -3557,8 +3535,8 @@ ORDER BY 1</property>
                   <connections>
                     <connection
                       refId="Package\TASK 3 - Upload Denormalized Table (Blocking and Non-Blocking Components)\Upload Stage\Product (IsSorted).Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[ORO-DWHPRED-01.AdventureWorks2016]"
-                      connectionManagerRefId="Package.ConnectionManagers[ORO-DWHPRED-01.AdventureWorks2016]"
+                      connectionManagerID="{759512EB-B134-40E3-B21B-152E6BBECF7C}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[ORO-DWHPRED-01.AdventureWorks2016]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -3728,8 +3706,8 @@ ORDER BY 1</property>
                   <connections>
                     <connection
                       refId="Package\TASK 3 - Upload Denormalized Table (Blocking and Non-Blocking Components)\Upload Stage\Sales Order.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[ORO-DWHPRED-01.AdventureWorks2016]"
-                      connectionManagerRefId="Package.ConnectionManagers[ORO-DWHPRED-01.AdventureWorks2016]"
+                      connectionManagerID="{759512EB-B134-40E3-B21B-152E6BBECF7C}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[ORO-DWHPRED-01.AdventureWorks2016]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -3959,8 +3937,8 @@ ORDER BY 1</property>
                   <connections>
                     <connection
                       refId="Package\TASK 3 - Upload Denormalized Table (Blocking and Non-Blocking Components)\Upload Stage\stage_DenormalizedTable.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[ORO-DWHPRED-01.GPN_Test]"
-                      connectionManagerRefId="Package.ConnectionManagers[ORO-DWHPRED-01.GPN_Test]"
+                      connectionManagerID="{3AD9DBA1-8D6E-4795-AD55-FEB88ABAD08D}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[ORO-DWHPRED-01.GPN_Test]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -4173,7 +4151,7 @@ ORDER BY 1</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
         <NodeLayout
           Size="145,42"
           Id="Package\TASK 1 - Upload Denormalized Table (Simpe Components)\Truncate Prod"
@@ -4195,7 +4173,7 @@ ORDER BY 1</property>
           TopLeft="144.75,68">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,27"
               Start="0,0"
               End="0,19.5">
@@ -4217,7 +4195,7 @@ ORDER BY 1</property>
           TopLeft="146.75,137">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,50"
               Start="0,0"
               End="0,42.5">
@@ -4239,7 +4217,7 @@ ORDER BY 1</property>
           TopLeft="146.25,229">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,25"
               Start="0,0"
               End="0,17.5">
@@ -4259,7 +4237,7 @@ ORDER BY 1</property>
         <AnnotationLayout
           Text="Some checking for errors can be pasted here.."
           ParentId="Package\TASK 1 - Upload Denormalized Table (Simpe Components)"
-          FontInfo="{x:Null}"
+          FontInfo="{assembly:Null}"
           Size="271,40"
           Id="302b7756-576b-46a2-abfa-4d2cf515bb21"
           TopLeft="165,136" />
@@ -4302,7 +4280,7 @@ ORDER BY 1</property>
           TopLeft="203,68">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,37"
               Start="0,0"
               End="0,29.5">
@@ -4324,7 +4302,7 @@ ORDER BY 1</property>
           TopLeft="204,147">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,111"
               Start="0,0"
               End="0,103.5">
@@ -4346,7 +4324,7 @@ ORDER BY 1</property>
           TopLeft="205,395">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,38"
               Start="0,0"
               End="0,30.5">
@@ -4368,7 +4346,7 @@ ORDER BY 1</property>
           TopLeft="205.25,475">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,23"
               Start="0,0"
               End="0,15.5">
@@ -4386,9 +4364,9 @@ ORDER BY 1</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <AnnotationLayout
-          Text="Above we have dataset User::WeatherData_Output with converted dates.&#xD;&#xA;Now we can use it in a &quot;Script Task&quot; as datasource, but i can't do this..&#xD;&#xA;There is some error in a Script Task, that's why i'm decided to use &quot;For - Loop + Update&quot;.&#xD;&#xA;We have just 5 rows in final dataset - and using &quot;Update&quot; commdand is not critical for performance."
+          Text="Above we have dataset User::WeatherData_Output with converted dates.&#xA;Now we can use it in a &quot;Script Task&quot; as datasource, but i can't do this..&#xA;There is some error in a Script Task, that's why i'm decided to use &quot;For - Loop + Update&quot;.&#xA;We have just 5 rows in final dataset - and using &quot;Update&quot; commdand is not critical for performance."
           ParentId="Package\TASK 2 - WeatherData to AdverntureWorks 2016 Upload"
-          FontInfo="{x:Null}"
+          FontInfo="{assembly:Null}"
           Size="556,88"
           Id="9820d86b-72c1-4385-bf8d-f781a4fc93f8"
           TopLeft="4.45454545454538,157.909090909091" />
@@ -4420,7 +4398,7 @@ ORDER BY 1</property>
           TopLeft="144.75,68">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,27"
               Start="0,0"
               End="0,19.5">
@@ -4442,7 +4420,7 @@ ORDER BY 1</property>
           TopLeft="146.75,137">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,50"
               Start="0,0"
               End="0,42.5">
@@ -4464,7 +4442,7 @@ ORDER BY 1</property>
           TopLeft="146.25,229">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,25"
               Start="0,0"
               End="0,17.5">
@@ -4484,7 +4462,7 @@ ORDER BY 1</property>
         <AnnotationLayout
           Text="Some checking for errors can be pasted here.."
           ParentId="Package\TASK 3 - Upload Denormalized Table (Blocking and Non-Blocking Components)"
-          FontInfo="{x:Null}"
+          FontInfo="{assembly:Null}"
           Size="271,40"
           Id="4f66d8c2-9175-49ce-aa81-fa40fffd6386"
           TopLeft="165,136" />
@@ -4513,24 +4491,6 @@ ORDER BY 1</property>
           Size="511,404"
           Id="Package\TASK 3 - Upload Denormalized Table (Blocking and Non-Blocking Components)"
           TopLeft="1161.24603174603,75.8571428571429" />
-        <AnnotationLayout
-          Text="IMPORTANT! Before executing TASK 2 we need to add 2 columns to WeatherData.&#xA;Please run script &quot;WeatherData_modify.SQL&quot;"
-          ParentId="Package"
-          Size="617,58"
-          Id="8e949a70-45c8-4de9-a225-9dae8b92b700"
-          TopLeft="529.333333333333,13.6666666666667">
-          <AnnotationLayout.FontInfo>
-            <mssge:FontInfo
-              Family="Tahoma"
-              Size="14.25"
-              Color="#FF00FF00"
-              Weight="Bold">
-              <mssge:FontInfo.TextDecorations>
-                <av:TextDecorationCollection />
-              </mssge:FontInfo.TextDecorations>
-            </mssge:FontInfo>
-          </AnnotationLayout.FontInfo>
-        </AnnotationLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -4734,13 +4694,13 @@ ORDER BY 1</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="192,42"
-          Id="Package\TASK 3 - Upload Denormalized Table (Blocking and Non-Blocking Components)\Upload Prod\dbo_DenormalizedTable"
-          TopLeft="234,156" />
-        <NodeLayout
           Size="200,42"
           Id="Package\TASK 3 - Upload Denormalized Table (Blocking and Non-Blocking Components)\Upload Prod\stage_DenormalizedTable"
           TopLeft="231,65" />
+        <NodeLayout
+          Size="192,42"
+          Id="Package\TASK 3 - Upload Denormalized Table (Blocking and Non-Blocking Components)\Upload Prod\dbo_DenormalizedTable"
+          TopLeft="234,156" />
         <EdgeLayout
           Id="Package\TASK 3 - Upload Denormalized Table (Blocking and Non-Blocking Components)\Upload Prod.Paths[OLE DB Source Output]"
           TopLeft="330.5,107">
@@ -4935,7 +4895,7 @@ ORDER BY 1</property>
           FontInfo="{x:Null}"
           Size="168,40"
           Id="f1e7a1b8-e218-4584-b8c4-082b70a64c19"
-          TopLeft="639,42" />
+          TopLeft="630,47" />
         <AnnotationLayout
           Text="&lt;-- Semi-blocking transformation"
           ParentId="Package\TASK 3 - Upload Denormalized Table (Blocking and Non-Blocking Components)\Upload Stage"

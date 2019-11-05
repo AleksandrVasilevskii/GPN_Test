@@ -1,5 +1,5 @@
 
--- At the first step you need to create new clean database [GPN_Test] on your SQL Server instanse
+-- Before run this script - you need to create new clean database [GPN_Test] on your SQL Server instanse
 -- Next steps below:
 
 
